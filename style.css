@@ -1,0 +1,130 @@
+:root {
+  --bg: #1b1c20;
+  --surface: #232428;
+  --surface-alt: #2b2c31;
+  --text: #f2f2f0;
+  --text-dim: #8a8b91;
+  --accent: #4c7cf0;
+  --accent-text: #ffffff;
+  --danger: #e0574c;
+  --radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  padding: 24px;
+}
+
+.calculator {
+  width: 100%;
+  max-width: 340px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.display {
+  background: var(--surface-alt);
+  border-radius: calc(var(--radius) - 4px);
+  padding: 20px 16px;
+  margin-bottom: 16px;
+  text-align: right;
+  overflow: hidden;
+}
+
+.display__expression {
+  min-height: 20px;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.display__current {
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.key {
+  border: none;
+  border-radius: 10px;
+  background: var(--surface-alt);
+  color: var(--text);
+  font-size: 1.1rem;
+  padding: 16px 0;
+  cursor: pointer;
+  transition: background-color 0.12s ease, transform 0.05s ease;
+}
+
+.key:hover {
+  background: #34353b;
+}
+
+.key:active {
+  transform: scale(0.96);
+}
+
+.key--function {
+  color: var(--text-dim);
+}
+
+.key--operator {
+  background: transparent;
+  color: var(--accent);
+  font-size: 1.3rem;
+}
+
+.key--operator:hover {
+  background: rgba(76, 124, 240, 0.12);
+}
+
+.key--operator.is-active {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+.key--equals {
+  background: var(--accent);
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+.key--equals:hover {
+  background: #3f6cd8;
+}
+
+.key--wide {
+  grid-column: span 1;
+}
+
+@media (max-width: 380px) {
+  .display__current {
+    font-size: 2rem;
+  }
+
+  .key {
+    padding: 14px 0;
+    font-size: 1rem;
+  }
+}
